@@ -134,4 +134,68 @@ class TupleTests: XCTestCase {
         
         XCTAssert(result == Tuple(x: 0.5, y: -1, z: 1.5, w: -2))
     }
+    
+    func testMagnitudeOfVector100() {
+        let v = Vector(x: 1, y: 0, z: 0)
+        
+        XCTAssert(v.magnitude == 1)
+    }
+    
+    func testMagnitudeOfVector010() {
+        let v = Vector(x: 0, y: 1, z: 0)
+        
+        XCTAssert(v.magnitude == 1)
+    }
+    
+    func testMagnitudeOfVector001() {
+        let v = Vector(x: 0, y: 0, z: 1)
+        
+        XCTAssert(v.magnitude == 1)
+    }
+    
+    func testMagnitudeOfPositivefVector() {
+        let v = Vector(x: 1, y: 2, z: 3)
+        
+        XCTAssert(v.magnitude == sqrt(14))
+    }
+    
+    func testMagnitudeOfNegativeVector() {
+        let v = Vector(x: -1, y: -2, z: -3)
+        
+        XCTAssert(v.magnitude == sqrt(14))
+    }
+    
+    func testNormalizeVector01() {
+        let v = Vector(x: 4, y: 0, z: 0)
+        let result = v.normalize()
+        
+        XCTAssert(result == Vector(x: 1, y: 0, z: 0))
+    }
+    
+    func testNormalizeVector02() {
+        let v = Vector(x: 1, y: 2, z: 3)
+        let result = v.normalize()
+        
+        //                            1/√14,      2/√14,      3/√14
+        XCTAssert(result == Vector(x: 0.26726, y: 0.53452, z: 0.80178))
+    }
+    
+    func testDotProductTwoVectors() {
+        let v1 = Vector(x: 1, y: 2, z: 3)
+        let v2 = Vector(x: 2, y: 3, z: 4)
+        let result = v1.dot(v2)
+        
+        XCTAssert(result == 20)
+    }
+    
+    func testCrossProductTwoVectors() {
+        let v1 = Vector(x: 1, y: 2, z: 3)
+        let v2 = Vector(x: 2, y: 3, z: 4)
+        
+        let result1 = v1.cross(v2)
+        let result2 = v2.cross(v1)
+        
+        XCTAssert(result1 == Vector(x: -1, y: 2, z: -1))
+        XCTAssert(result2 == Vector(x: 1, y: -2, z: 1))
+    }
 }
