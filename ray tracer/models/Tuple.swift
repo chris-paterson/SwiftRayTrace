@@ -56,4 +56,8 @@ class Tuple {
         
         return Tuple(x: x, y: y, z: z, w: w).tupleFactory()
     }
+    
+    static prefix func -(t: Tuple) -> Tuple {
+        return Tuple(x: -t.x, y: -t.y, z: -t.z, w: -t.w)
+    }
 }
