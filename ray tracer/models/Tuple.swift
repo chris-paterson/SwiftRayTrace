@@ -40,21 +40,17 @@ class Tuple {
     }
     
     static func +(lhs: Tuple, rhs: Tuple) -> Tuple {
-        let x = lhs.x + rhs.x
-        let y = lhs.y + rhs.y
-        let z = lhs.z + rhs.z
-        let w = lhs.w + rhs.w
-        
-        return Tuple(x: x, y: y, z: z, w: w).tupleFactory()
+        return Tuple(x: lhs.x + rhs.x,
+                     y: lhs.y + rhs.y,
+                     z: lhs.z + rhs.z,
+                     w: lhs.w + rhs.w).tupleFactory()
     }
     
     static func -(lhs: Tuple, rhs: Tuple) -> Tuple {
-        let x = lhs.x - rhs.x
-        let y = lhs.y - rhs.y
-        let z = lhs.z - rhs.z
-        let w = lhs.w - rhs.w
-        
-        return Tuple(x: x, y: y, z: z, w: w).tupleFactory()
+        return Tuple(x: lhs.x - rhs.x,
+                     y: lhs.y - rhs.y,
+                     z: lhs.z - rhs.z,
+                     w: lhs.w - rhs.w).tupleFactory()
     }
     
     static prefix func -(t: Tuple) -> Tuple {
