@@ -27,7 +27,7 @@ class TupleTests: XCTestCase {
         XCTAssert(a.z == 3.1)
         XCTAssert(a.w == 1.0)
         
-        let point = a.TupleFactory()
+        let point = a.tupleFactory()
         XCTAssert(point is Point)
         XCTAssert(!(point is Vector))
         XCTAssert(point.w == 1.0)
@@ -40,7 +40,7 @@ class TupleTests: XCTestCase {
         XCTAssert(a.z == 3.1)
         XCTAssert(a.w == 0.0)
         
-        let point = a.TupleFactory()
+        let point = a.tupleFactory()
         XCTAssert(point is Vector)
         XCTAssert(!(point is Point))
         XCTAssert(point.w == 0.0)
@@ -57,5 +57,19 @@ class TupleTests: XCTestCase {
         let t = v as Tuple
         XCTAssert(t.w == 0.0)
     }
+    
+    func testAddingTwoTuples() {
+        let t1 = Tuple(x: 3, y: -2, z: 5, w: 1)
+        let t2 = Tuple(x: -2, y: 3, z: 1, w: 0)
+        let result = t1 + t2
+        XCTAssert(result == Tuple(x: 1, y: 1, z: 6, w: 1))
+    }
 
+    func testSubtractTwoPoints() {
+        let p1 = Point(x: 3, y: 2, z: 1)
+        let p2 = Point(x: 5, y: 6, z: 7)
+        let result = p1 - p2
+        XCTAssert(result is Vector)
+        XCTAssert(result == Vector(x: -2, y: -4, z: -6))
+    }
 }
