@@ -113,4 +113,25 @@ class TupleTests: XCTestCase {
         
         XCTAssert(-t == Tuple(x: -1, y: 2, z: -3, w: -4))
     }
+    
+    func testMultiplyTupleByScalar() {
+        let t = Tuple(x: 1, y: -2, z: 3, w: -4)
+        let result = t * 3.5
+        
+        XCTAssert(result == Tuple(x: 3.5, y: -7, z: 10.5, w: -14))
+    }
+    
+    func testMultiplyTupleByFraction() {
+        let t = Tuple(x: 1, y: -2, z: 3, w: -4)
+        let result = t * 0.5
+        
+        XCTAssert(result == Tuple(x: 0.5, y: -1, z: 1.5, w: -2))
+    }
+    
+    func testDivideByScalar() {
+        let t = Tuple(x: 1, y: -2, z: 3, w: -4)
+        let result = t / 2
+        
+        XCTAssert(result == Tuple(x: 0.5, y: -1, z: 1.5, w: -2))
+    }
 }

@@ -53,6 +53,20 @@ class Tuple {
                      w: lhs.w - rhs.w).tupleFactory()
     }
     
+    static func *(lhs: Tuple, rhs: Float) -> Tuple {
+        return Tuple(x: lhs.x * rhs,
+                     y: lhs.y * rhs,
+                     z: lhs.z * rhs,
+                     w: lhs.w * rhs).tupleFactory()
+    }
+    
+    static func /(lhs: Tuple, rhs: Float) -> Tuple {
+        return Tuple(x: lhs.x / rhs,
+                     y: lhs.y / rhs,
+                     z: lhs.z / rhs,
+                     w: lhs.w / rhs).tupleFactory()
+    }
+    
     static prefix func -(t: Tuple) -> Tuple {
         return Tuple(x: -t.x, y: -t.y, z: -t.z, w: -t.w)
     }
