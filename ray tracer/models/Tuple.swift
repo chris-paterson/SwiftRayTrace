@@ -7,6 +7,8 @@
 //
 
 class Tuple {
+    static let EPSILON: Float = 0.0001 // Threshold
+    
     let x: Float
     let y: Float
     let z: Float
@@ -28,5 +30,12 @@ class Tuple {
         default:
             return self
         }
+    }
+    
+    static func == (lhs: Tuple, rhs: Tuple) -> Bool {
+        return (lhs.x - rhs.x) < EPSILON &&
+            abs(lhs.y - rhs.y) < EPSILON &&
+            abs(lhs.z - rhs.z) < EPSILON &&
+            abs(lhs.w - rhs.w) < EPSILON
     }
 }

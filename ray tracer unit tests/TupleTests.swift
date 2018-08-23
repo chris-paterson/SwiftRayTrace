@@ -20,7 +20,7 @@ class TupleTests: XCTestCase {
         super.tearDown()
     }
 
-    func testTupleIsPoint() {
+    func testTupleWithW1IsPoint() {
         let a = Tuple(x: 4.3, y: -4.2, z: 3.1, w: 1.0)
         XCTAssert(a.x == 4.3)
         XCTAssert(a.y == -4.2)
@@ -33,7 +33,7 @@ class TupleTests: XCTestCase {
         XCTAssert(point.w == 1.0)
     }
     
-    func testTupleIsVector() {
+    func testTupleWithW0IsVector() {
         let a = Tuple(x: 4.3, y: -4.2, z: 3.1, w: 0.0)
         XCTAssert(a.x == 4.3)
         XCTAssert(a.y == -4.2)
@@ -44,6 +44,18 @@ class TupleTests: XCTestCase {
         XCTAssert(point is Vector)
         XCTAssert(!(point is Point))
         XCTAssert(point.w == 0.0)
+    }
+    
+    func testPointDescribesTupleWithW1() {
+        let p = Point(x: 4, y: -4, z: 3)
+        let t = p as Tuple
+        XCTAssert(t.w == 1.0)
+    }
+    
+    func testVectorDescribesTupleWithW0() {
+        let v = Vector(x: 4, y: -4, z: 3)
+        let t = v as Tuple
+        XCTAssert(t.w == 0.0)
     }
 
 }

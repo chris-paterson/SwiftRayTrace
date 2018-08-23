@@ -84,9 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5CBCFD212E2F5E009F10A5 /* main.swift */,
-				5A5CBD18212E347E009F10A5 /* Tuple.swift */,
-				5A5CBD1D212E38B0009F10A5 /* Point.swift */,
-				5A5CBD23212E3B77009F10A5 /* Vector.swift */,
+				5A77F01E212F2D3A007E15C3 /* models */,
 			);
 			path = "ray tracer";
 			sourceTree = "<group>";
@@ -100,6 +98,16 @@
 				5A5CBD16212E3229009F10A5 /* TupleTests.swift */,
 			);
 			path = "ray tracer unit tests";
+			sourceTree = "<group>";
+		};
+		5A77F01E212F2D3A007E15C3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5A5CBD18212E347E009F10A5 /* Tuple.swift */,
+				5A5CBD1D212E38B0009F10A5 /* Point.swift */,
+				5A5CBD23212E3B77009F10A5 /* Vector.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R8W4J98NNX;
+				DEVELOPMENT_TEAM = CCQ6XUACNZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -340,7 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R8W4J98NNX;
+				DEVELOPMENT_TEAM = CCQ6XUACNZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -351,7 +359,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = R8W4J98NNX;
+				DEVELOPMENT_TEAM = CCQ6XUACNZ;
 				INFOPLIST_FILE = "ray tracer unit tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -369,7 +377,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = R8W4J98NNX;
+				DEVELOPMENT_TEAM = CCQ6XUACNZ;
 				INFOPLIST_FILE = "ray tracer unit tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
