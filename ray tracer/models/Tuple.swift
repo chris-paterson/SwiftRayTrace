@@ -21,17 +21,6 @@ class Tuple {
         self.w = w
     }
     
-    func tupleFactory() -> Tuple {
-        switch w {
-        case 0.0:
-            return Vector(x: x, y: y, z: z)
-        case 1.0:
-            return Point(x: x, y: y, z: z)
-        default:
-            return self
-        }
-    }
-    
     static func ==(lhs: Tuple, rhs: Tuple) -> Bool {
         return (lhs.x - rhs.x) < EPSILON &&
             abs(lhs.y - rhs.y) < EPSILON &&
@@ -43,28 +32,28 @@ class Tuple {
         return Tuple(x: lhs.x + rhs.x,
                      y: lhs.y + rhs.y,
                      z: lhs.z + rhs.z,
-                     w: lhs.w + rhs.w).tupleFactory()
+                     w: lhs.w + rhs.w)
     }
     
     static func -(lhs: Tuple, rhs: Tuple) -> Tuple {
         return Tuple(x: lhs.x - rhs.x,
                      y: lhs.y - rhs.y,
                      z: lhs.z - rhs.z,
-                     w: lhs.w - rhs.w).tupleFactory()
+                     w: lhs.w - rhs.w)
     }
     
     static func *(lhs: Tuple, rhs: Float) -> Tuple {
         return Tuple(x: lhs.x * rhs,
                      y: lhs.y * rhs,
                      z: lhs.z * rhs,
-                     w: lhs.w * rhs).tupleFactory()
+                     w: lhs.w * rhs)
     }
     
     static func /(lhs: Tuple, rhs: Float) -> Tuple {
         return Tuple(x: lhs.x / rhs,
                      y: lhs.y / rhs,
                      z: lhs.z / rhs,
-                     w: lhs.w / rhs).tupleFactory()
+                     w: lhs.w / rhs)
     }
     
     static prefix func -(t: Tuple) -> Tuple {

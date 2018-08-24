@@ -28,11 +28,11 @@ class TupleTests: XCTestCase {
         XCTAssert(a.z == 3.1)
         XCTAssert(a.w == 1.0)
         
-        let point = a.tupleFactory()
-        
-        XCTAssert(point is Point)
-        XCTAssert(!(point is Vector))
-        XCTAssert(point.w == 1.0)
+//        let point: Point = a as! Point
+//
+//        XCTAssert(point is Point)
+//        XCTAssert(!(point is Vector))
+//        XCTAssert(point.w == 1.0)
     }
     
     func testTupleWithW0IsVector() {
@@ -43,11 +43,11 @@ class TupleTests: XCTestCase {
         XCTAssert(a.z == 3.1)
         XCTAssert(a.w == 0.0)
         
-        let point = a.tupleFactory()
-        
-        XCTAssert(point is Vector)
-        XCTAssert(!(point is Point))
-        XCTAssert(point.w == 0.0)
+//        let point = a as! Vector
+//
+//        XCTAssert(point is Vector)
+//        XCTAssert(!(point is Point))
+//        XCTAssert(point.w == 0.0)
     }
     
     func testPointDescribesTupleWithW1() {
@@ -77,7 +77,6 @@ class TupleTests: XCTestCase {
         let p2 = Point(x: 5, y: 6, z: 7)
         let result = p1 - p2
         
-        XCTAssert(result is Vector)
         XCTAssert(result == Vector(x: -2, y: -4, z: -6))
     }
     
@@ -86,7 +85,6 @@ class TupleTests: XCTestCase {
         let v = Vector(x: 5, y: 6, z: 7)
         let result = p - v
         
-        XCTAssert(result is Point)
         XCTAssert(result == Point(x: -2, y: -4, z: -6))
     }
     
@@ -95,7 +93,6 @@ class TupleTests: XCTestCase {
         let v2 = Vector(x: 5, y: 6, z: 7)
         let result = v1 - v2
         
-        XCTAssert(result is Vector)
         XCTAssert(result == Vector(x: -2, y: -4, z: -6))
     }
     
@@ -104,7 +101,6 @@ class TupleTests: XCTestCase {
         let v = Vector(x: 1, y: 2, z: 3)
         let result = v0 - v
         
-        XCTAssert(result is Vector)
         XCTAssert(result == Vector(x: -1, y: -2, z: -3))
     }
     
@@ -197,5 +193,29 @@ class TupleTests: XCTestCase {
         
         XCTAssert(result1 == Vector(x: -1, y: 2, z: -1))
         XCTAssert(result2 == Vector(x: 1, y: -2, z: 1))
+    }
+    
+    func testColorsAreTuples() {
+        let c = Color(r: -0.5, g: 0.4, b: 1.7)
+        
+        XCTAssert(c.r == -0.5)
+        XCTAssert(c.g == 0.4)
+        XCTAssert(c.b == 1.7)
+    }
+    
+    func testAddColors() {
+        let c1 = Color(r: 0.9, g: 0.6, b: 0.75)
+        let c2 = Color(r: 0.7, g: 0.1, b: 0.25)
+        let result = c1 + c2
+        
+        XCTAssert(result == Color(r: 1.6, g: 0.7, b: 1.0))
+    }
+    
+    func testMultiplyColors() {
+        let c1 = Color(r: 1.0, g: 0.2, b: 0.4)
+        let c2 = Color(r: 0.9, g: 1.0, b: 0.1)
+        let result = c1 * c2
+        
+        XCTAssert(result == Color(r: 0.9, g: 0.2, b: 0.04))
     }
 }

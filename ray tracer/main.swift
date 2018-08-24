@@ -8,5 +8,14 @@
 
 import Foundation
 
-print("Hello, World!")
+let world = World(gravity: Vector(x: 0, y: 9.8, z: 0),
+                  wind: Vector(x: 0, y: 0, z: 0))
 
+var projectile = Projectile(position: Point(x: 3, y: 100, z: 0),
+                            velocity: Vector(x: 60, y: 20, z: 0))
+
+
+for _ in 0..<100 {
+    projectile = world.tick(projectile: projectile)
+    print(projectile.position.x, projectile.position.y)
+}

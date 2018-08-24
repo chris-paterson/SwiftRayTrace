@@ -17,7 +17,7 @@ class World {
     
     func tick(projectile: Projectile) -> Projectile {
         let position = projectile.position + projectile.velocity
-        let velocity = projectile.velocity + self.wind + self.gravity as! Vector
+        let velocity = projectile.velocity + self.wind + self.gravity
         
         return Projectile(position: position, velocity: velocity)
     }
