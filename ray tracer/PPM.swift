@@ -44,17 +44,35 @@ class PPM {
     }
     
     fileprivate func enforceLineLength(_ content: String) -> String {
-        let components: [String] = content.components(separatedBy: " ")
+        let components: [String] = content
+            .replacingOccurrences(of: "\n", with: " \n ") // Since we split on string, pad new lines so they are their own component
+            .components(separatedBy: " ")
         var newContents = ""
         
-        components.forEach { component in
-            // +1 to take into account space.
-            if (newContents.count % 70 + component.count + 1 >= 70) {
-                newContents.append("\(String(newContents.dropLast()))\n")
-                newContents.append(component)
-            } else {
-                newContents.append(component + " ")
+        var countSinceLastNewLine = 0
+        for (index, component) in components.enumerated() {
+            if component == "\n" {
+                newContents.append("\n")
+                countSinceLastNewLine = 0
+                continue
             }
+            
+            // +1 to take into account space.
+            if (countSinceLastNewLine + component.count + 1 > 70) {
+                newContents.append("\n")
+                newContents.append(component)
+                countSinceLastNewLine = component.count
+                continue
+            }
+            
+            if index == 0 || newContents.suffix(1) == "\n" {
+                newContents.append(component)
+                countSinceLastNewLine += component.count
+                continue
+            }
+            
+            newContents.append(" " + component)
+            countSinceLastNewLine += component.count + 1 // +1 for the space
         }
         
         return newContents

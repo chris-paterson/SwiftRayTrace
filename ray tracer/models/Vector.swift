@@ -37,6 +37,13 @@ class Vector: Tuple {
                       w: lhs.w + rhs.w)
     }
     
+    static func *(lhs: Vector, rhs: Float) -> Vector {
+        return Vector(x: lhs.x * rhs,
+                     y: lhs.y * rhs,
+                     z: lhs.z * rhs,
+                     w: lhs.w * rhs)
+    }
+    
     func normalize() -> Vector {
         return Vector(x: x / magnitude,
                      y: y / magnitude,

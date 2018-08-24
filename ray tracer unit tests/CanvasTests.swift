@@ -73,10 +73,10 @@ class CanvasTests: XCTestCase {
         
         canvas.save()
         let contents = FileUtil.loadFile()
-            .split(separator: "\n")
-            .dropFirst(3)
-            .joined(separator: "\n")
         let expected = """
+            P3
+            5 3
+            255
             255 0 0 0 0 0 0 0 0 0 0 0 0 0 0
             0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
             0 0 0 0 0 0 0 0 0 0 0 0 128 0 255
@@ -98,11 +98,11 @@ class CanvasTests: XCTestCase {
         
         canvas.save()
         let contents = FileUtil.loadFile()
-            .split(separator: "\n")
-            .dropFirst(3)
-            .joined(separator: "\n")
         
         let expected = """
+            P3
+            10 2
+            255
             255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
             153 255 204 153 255 204 153 255 204 153 255 204 153
             255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
