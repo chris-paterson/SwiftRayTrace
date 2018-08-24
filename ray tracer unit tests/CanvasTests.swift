@@ -19,6 +19,8 @@ class CanvasTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        
+        // TODO: delete ppm
     }
     
     func testCreateCanvas() {
@@ -69,18 +71,45 @@ class CanvasTests: XCTestCase {
         canvas[2, 1] = c2
         canvas[4, 2] = c3
         
-        canvas.save(fileName: "ColourTest.ppm")
+        canvas.save()
         let contents = FileUtil.loadFile()
             .split(separator: "\n")
             .dropFirst(3)
             .joined(separator: "\n")
-        let testString = """
+        let expected = """
             255 0 0 0 0 0 0 0 0 0 0 0 0 0 0
             0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
             0 0 0 0 0 0 0 0 0 0 0 0 128 0 255
+
             """
         
-        XCTAssert(contents == testString)
+        XCTAssert(contents == expected)
     }
 
+    func testFileLineLength() {
+        let canvas = Canvas(width: 10, height: 2)
+        let c = Color(r: 1.0, g: 0.8, b: 0.6)
+        
+        for y in 0..<2 {
+            for x in 0..<10 {
+                canvas[x, y] = c
+            }
+        }
+        
+        canvas.save()
+        let contents = FileUtil.loadFile()
+            .split(separator: "\n")
+            .dropFirst(3)
+            .joined(separator: "\n")
+        
+        let expected = """
+            255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+            153 255 204 153 255 204 153 255 204 153 255 204 153
+            255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+            153 255 204 153 255 204 153 255 204 153 255 204 153
+
+            """
+        
+        XCTAssert(contents == expected)
+    }
 }

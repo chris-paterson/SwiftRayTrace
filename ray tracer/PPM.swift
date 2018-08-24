@@ -39,8 +39,26 @@ class PPM {
             }
             acc.append("\(String(row.dropLast()))\n")
         }
-        return acc
+        let result = enforceLineLength(acc)
+        return result
     }
+    
+    fileprivate func enforceLineLength(_ content: String) -> String {
+        let components: [String] = content.components(separatedBy: " ")
+        var newContents = ""
+        
+        components.forEach { component in
+            // +1 to take into account space.
+            if (newContents.count % 70 + component.count + 1 >= 70) {
+                newContents.append("\(String(newContents.dropLast()))\n")
+                newContents.append(component)
+            } else {
+                newContents.append(component + " ")
+            }
+        }
+        
+        return newContents
+    } 
     
     fileprivate func clamp(_ value: Float) -> Int {
         let val = Int(abs(value) + 0.5)
