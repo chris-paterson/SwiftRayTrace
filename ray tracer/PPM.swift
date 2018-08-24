@@ -28,22 +28,22 @@ class PPM {
     fileprivate func generateBody(canvas: Canvas) -> String {
         var acc = ""
         for y in 0..<canvas.height {
+            var row = ""
             for x in 0..<canvas.width {
                 let color = canvas[x, y]
                 let r = clamp(color.r * scaleMax)
                 let g = clamp(color.g * scaleMax)
                 let b = clamp(color.b * scaleMax)
                 
-                acc.append("\(r) \(g) \(b)")
+                row.append("\(r) \(g) \(b) ")
             }
-            acc.append("\n")
+            acc.append("\(String(row.dropLast()))\n")
         }
-        
         return acc
     }
     
     fileprivate func clamp(_ value: Float) -> Int {
-        let val = abs(Int(value + 0.5))
+        let val = Int(abs(value) + 0.5)
         return min(max(val, 0), Int(scaleMax))
     }
 }

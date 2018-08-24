@@ -25,15 +25,15 @@ class Canvas {
     subscript(x: Int, y: Int) -> Color {
         get {
             assert(indexIsValid(x: x, y: y), "Index out of range")
-            return pixels[(y * x) + x]
+            return pixels[(width * y) + x]
         }
         set {
             assert(indexIsValid(x: x, y: y), "Index out of range")
-            pixels[(y * x) + x] = newValue
+            pixels[(width * y) + x] = newValue
         }
     }
     
-    func save() {
-        FileUtil.save(canvas: self)
+    func save(fileName: String = FileUtil.DEFAULT_FILENAME) {
+        FileUtil.save(canvas: self, fileName: fileName)
     }
 }

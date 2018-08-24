@@ -69,15 +69,15 @@ class CanvasTests: XCTestCase {
         canvas[2, 1] = c2
         canvas[4, 2] = c3
         
-        canvas.save()
+        canvas.save(fileName: "ColourTest.ppm")
         let contents = FileUtil.loadFile()
             .split(separator: "\n")
             .dropFirst(3)
             .joined(separator: "\n")
         let testString = """
             255 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-            ​0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
-            ​0 0 0 0 0 0 0 0 0 0 0 0 0 0 255
+            0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
+            0 0 0 0 0 0 0 0 0 0 0 0 128 0 255
             """
         
         XCTAssert(contents == testString)
