@@ -6,6 +6,8 @@
 //  Copyright © 2018 Christopher Paterson. All rights reserved.
 //
 
+import Foundation
+
 class Transform {
     static func transform(x: Float, y: Float, z: Float) -> Matrix {
         return Matrix([
@@ -22,6 +24,33 @@ class Transform {
             [0, y, 0, 0],
             [0, 0, z, 0],
             [0, 0, 0, 1],
+        ])
+    }
+    
+    static func rotateX(_ rads: Float) -> Matrix {
+        return Matrix([
+            [1,     0,          0,          0],
+            [0,     cos(rads),  -sin(rads), 0],
+            [0,     sin(rads),  cos(rads),  0],
+            [0,     0,          0,          1],
+        ])
+    }
+    
+    static func rotateY(_ rads: Float) -> Matrix {
+        return Matrix([
+            [cos(rads),     0, sin(rads),   0],
+            [0,             1, 0,           0],
+            [-sin(rads),    0, cos(rads),   0],
+            [0,             0, 0,           1],
+        ])
+    }
+    
+    static func rotateZ(_ rads: Float) -> Matrix {
+        return Matrix([
+            [cos(rads), -sin(rads), 0, 0],
+            [sin(rads), cos(rads),  0, 0],
+            [0,         0,          1, 0],
+            [0,         0,          0, 1],
         ])
     }
 }

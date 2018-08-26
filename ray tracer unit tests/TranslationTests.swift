@@ -68,5 +68,39 @@ class TranslationTests: XCTestCase {
         
         XCTAssert(t * p == Point(x: -2, y: 3, z: 4))
     }
+    
+    
+    func testRotatePointAroundXAxis() {
+        let p = Point(x: 0, y: 1, z: 0)
+        let halfQuater = Transform.rotateX(.pi / 4)
+        let fullQuater = Transform.rotateX(.pi / 2)
+        
+        XCTAssert(halfQuater * p == Point(x: 0, y: sqrt(2)/2, z: sqrt(2)/2))
+        XCTAssert(fullQuater * p == Point(x: 0, y: 0, z: 1))
+    }
 
+    func testRotateInverseRotatesOppositeDirection() {
+        let p = Point(x: 0, y: 1, z: 0)
+        let halfQuater = Transform.rotateX(.pi / 4)
+        let invHalfQuater = halfQuater.inverse()
+        XCTAssert(invHalfQuater * p == Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2))
+    }
+    
+    func testRotatePointAroundYAxis() {
+        let p = Point(x: 0, y: 0, z: 1)
+        let halfQuater = Transform.rotateY(.pi / 4)
+        let fullQuater = Transform.rotateY(.pi / 2)
+        
+        XCTAssert(halfQuater * p == Point(x: sqrt(2)/2, y: 0, z: sqrt(2)/2))
+        XCTAssert(fullQuater * p == Point(x: 1, y: 0, z: 0))
+    }
+    
+    func testRotatePointAroundZAxis() {
+        let p = Point(x: 0, y: 1, z: 0)
+        let halfQuater = Transform.rotateZ(.pi / 4)
+        let fullQuater = Transform.rotateZ(.pi / 2)
+        
+        XCTAssert(halfQuater * p == Point(x: -sqrt(2)/2, y: sqrt(2)/2, z: 0))
+        XCTAssert(fullQuater * p == Point(x: -1, y: 0, z: 0))
+    }
 }
