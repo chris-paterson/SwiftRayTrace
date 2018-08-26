@@ -7,9 +7,17 @@
 //
 
 class Matrix {
+    static let EPSILON: Float = 0.0001
+    
     private var matrix: [[Float]]
     let height: Int
     let width: Int
+    
+    var isInvertable: Bool {
+        get {
+            return self.det() != 0
+        }
+    }
     
     // TODO: Should this be a class var to accomodate to more than just 4x4?
     // Maybe make it a static function passing in the size (width/height should be the same)
@@ -64,6 +72,63 @@ class Matrix {
         return transposedMatrix
     }
     
+    func det() -> Float {
+        if self.width == 1 && self.height == 1 {
+            return self[0, 0]
+        }
+        
+        if self.width == 2 && self.height == 2 {
+            return self[0, 0] * self[1, 1] - self[0, 1] * self[1, 0]
+        }
+        
+        var acc: Float = 0
+        for c in 0..<self.width {
+            acc += self[0, c] * cofactor(row: 0, col: c)
+        }
+        
+        return acc
+    }
+    
+    func subMatrix(row: Int, col: Int) -> Matrix {
+        var acc = [[Float]]()
+        for r in 0..<self.height {
+            if r == row { continue }
+            var newRow = [Float]()
+            for c in 0..<self.width {
+                if c == col { continue }
+                newRow.append(self[r, c])
+            }
+            acc.append(newRow)
+        }
+        
+        return Matrix(acc)
+    }
+    
+    func minor(row: Int, col: Int) -> Float {
+        let subMat = self.subMatrix(row: row, col: col)
+        return subMat.det()
+    }
+    
+    func cofactor(row: Int, col: Int) -> Float {
+        let minor = self.minor(row: row, col: col)
+        return (row + col) % 2 == 0
+            ? minor
+            : minor * -1
+    }
+    
+    func inverse() -> Matrix {
+        let cofactorMatrix = Matrix(width: self.width, height: self.height)
+        
+        for r in 0..<self.height {
+            for c in 0..<self.width {
+                cofactorMatrix[r, c] = self.cofactor(row: r, col: c)
+            }
+        }
+        
+        let transposedCofactorMatrix = cofactorMatrix.transposed()
+        return transposedCofactorMatrix / self.det()
+    }
+    
     func getColumn(col: Int) -> [Float] {
         // Get all rows in the column
         var colValues = [Float]()
@@ -105,7 +170,7 @@ class Matrix {
         
         for r in 0..<lhs.height {
             for c in 0..<lhs.width {
-                if lhs[r, c] != rhs[r, c] {
+                if abs(lhs[r, c] - rhs[r, c]) > EPSILON {
                     return false
                 }
             }
@@ -119,5 +184,17 @@ class Matrix {
         let matmul = lhs * tupleAsMatrix
         
         return Tuple(x: matmul[0, 0], y: matmul[1, 0], z: matmul[2, 0], w: matmul[3, 0])
+    }
+    
+    static func /(lhs: Matrix, rhs: Float) -> Matrix {
+        let m = Matrix(width: lhs.width, height: lhs.height)
+        
+        for r in 0..<lhs.height {
+            for c in 0..<lhs.width {
+                m[r, c] = lhs[r, c] / rhs
+            }
+        }
+        
+        return m
     }
 }

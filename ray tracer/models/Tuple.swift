@@ -22,7 +22,7 @@ class Tuple {
     }
     
     static func ==(lhs: Tuple, rhs: Tuple) -> Bool {
-        return (lhs.x - rhs.x) < EPSILON &&
+        return abs(lhs.x - rhs.x) < EPSILON &&
             abs(lhs.y - rhs.y) < EPSILON &&
             abs(lhs.z - rhs.z) < EPSILON &&
             abs(lhs.w - rhs.w) < EPSILON
