@@ -11,6 +11,13 @@ class Matrix {
     let height: Int
     let width: Int
     
+    static let identity = Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1],
+    ])
+    
     init(_ m: [[Float]]) {
         self.height = m.count
         self.width = m[0].count
@@ -19,6 +26,13 @@ class Matrix {
     
     convenience init(width: Int, height: Int, repeating r: Float = 0.0) {
         let m = Array(repeating: Array(repeating: r, count: width), count: height)
+        self.init(m)
+    }
+    
+    convenience init(tuple t: Tuple) {
+        // TODO: Switch to transpose
+        // Create a 1x4 matrix
+        let m = [t.x, t.y, t.z, t.w].map { [$0] }
         self.init(m)
     }
     
@@ -86,5 +100,12 @@ class Matrix {
         }
         
         return true
+    }
+    
+    static func *(lhs: Matrix, rhs: Tuple) -> Tuple {
+        let tupleAsMatrix = Matrix(tuple: rhs)
+        let matmul = lhs * tupleAsMatrix
+        
+        return Tuple(x: matmul[0, 0], y: matmul[1, 0], z: matmul[2, 0], w: matmul[3, 0])
     }
 }

@@ -87,5 +87,32 @@ class MatrixTests: XCTestCase {
         
         XCTAssert(m1 * m2 == expected)
     }
+    
+    func testMatMulTuple() {
+        let m = Matrix([
+            [1, 2, 3, 4],
+            [2, 4, 4, 2],
+            [8, 6, 4, 1],
+            [0, 0, 0, 1],
+        ])
+        
+        let t = Tuple(x: 1, y: 2, z: 3, w: 1)
+        let expected = Tuple(x: 18, y: 24, z: 33, w: 1)
+        let result = m * t
+        
+        XCTAssert(result == expected)
+    }
+    
+    func testMultiplyMatrixByIdentitiy() {
+        let m = Matrix([
+            [0, 1, 2, 4],
+            [1, 2, 4, 8],
+            [2, 4, 8, 16],
+            [4, 8, 16, 32]
+        ])
+        
+        let result = m * Matrix.identity
+        XCTAssert(result == m)
+    }
 
 }
