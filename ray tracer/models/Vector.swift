@@ -19,36 +19,32 @@ class Vector: Tuple {
         super.init(x: x, y: y, z: z, w: 0.0)
     }
     
-    override init(x: Float, y: Float, z: Float, w: Float) {
-        super.init(x: x, y: y, z: z, w: w)
-    }
+//    override init(x: Float, y: Float, z: Float, w: Float) {
+//        super.init(x: x, y: y, z: z, w: w)
+//    }
     
     static func -(lhs: Vector, rhs: Vector) -> Vector {
         return Vector(x: lhs.x - rhs.x,
                       y: lhs.y - rhs.y,
-                      z: lhs.z - rhs.z,
-                      w: lhs.w - rhs.w)
+                      z: lhs.z - rhs.z)
     }
     
     static func +(lhs: Vector, rhs: Vector) -> Vector {
         return Vector(x: lhs.x + rhs.x,
                       y: lhs.y + rhs.y,
-                      z: lhs.z + rhs.z,
-                      w: lhs.w + rhs.w)
+                      z: lhs.z + rhs.z)
     }
     
     static func *(lhs: Vector, rhs: Float) -> Vector {
         return Vector(x: lhs.x * rhs,
                      y: lhs.y * rhs,
-                     z: lhs.z * rhs,
-                     w: lhs.w * rhs)
+                     z: lhs.z * rhs)
     }
     
     func normalize() -> Vector {
         return Vector(x: x / magnitude,
                      y: y / magnitude,
-                     z: z / magnitude,
-                     w: w / magnitude)
+                     z: z / magnitude)
     }
     
     func dot(_ v: Vector) -> Float {

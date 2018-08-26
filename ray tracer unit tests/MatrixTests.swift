@@ -338,8 +338,6 @@ class MatrixTests: XCTestCase {
         XCTAssert(m1.inverse() == expected)
     }
     
-    
-    
     func testMultiplyByInverse() {
         let m1 = Matrix([
             [ 3, -9,  7,  3],

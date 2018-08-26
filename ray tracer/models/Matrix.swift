@@ -186,6 +186,10 @@ class Matrix {
         return Tuple(x: matmul[0, 0], y: matmul[1, 0], z: matmul[2, 0], w: matmul[3, 0])
     }
     
+    static func *(lhs: Tuple, rhs: Matrix) -> Tuple {
+        return rhs * lhs
+    }
+    
     static func /(lhs: Matrix, rhs: Float) -> Matrix {
         let m = Matrix(width: lhs.width, height: lhs.height)
         

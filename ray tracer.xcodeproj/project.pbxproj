@@ -31,6 +31,9 @@
 		5A5CBD35212F970D009F10A5 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBD33212F944B009F10A5 /* FileUtil.swift */; };
 		5A5CBD37212F9EB5009F10A5 /* PPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBD36212F9EB5009F10A5 /* PPM.swift */; };
 		5A5CBD38212F9EB5009F10A5 /* PPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBD36212F9EB5009F10A5 /* PPM.swift */; };
+		5AFB4E7A21334CB600C4F995 /* TranslationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB4E7921334CB600C4F995 /* TranslationTests.swift */; };
+		5AFB4E7C21334EB000C4F995 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB4E7B21334EB000C4F995 /* Transform.swift */; };
+		5AFB4E7D21334EB000C4F995 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB4E7B21334EB000C4F995 /* Transform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +68,8 @@
 		5A5CBD30212F8BDC009F10A5 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		5A5CBD33212F944B009F10A5 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		5A5CBD36212F9EB5009F10A5 /* PPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPM.swift; sourceTree = "<group>"; };
+		5AFB4E7921334CB600C4F995 /* TranslationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationTests.swift; sourceTree = "<group>"; };
+		5AFB4E7B21334EB000C4F995 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,7 @@
 				5A5CBD16212E3229009F10A5 /* TupleTests.swift */,
 				5A5CBD2E212F8B9D009F10A5 /* CanvasTests.swift */,
 				5A322E7D2130C63B00424AF5 /* MatrixTests.swift */,
+				5AFB4E7921334CB600C4F995 /* TranslationTests.swift */,
 			);
 			path = "ray tracer unit tests";
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 				5A5CBD2B212F7B68009F10A5 /* Color.swift */,
 				5A5CBD30212F8BDC009F10A5 /* Canvas.swift */,
 				5A322E7A2130C5E100424AF5 /* Matrix.swift */,
+				5AFB4E7B21334EB000C4F995 /* Transform.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 				5A5CBD24212E3B77009F10A5 /* Vector.swift in Sources */,
 				5A5CBD34212F944B009F10A5 /* FileUtil.swift in Sources */,
 				5A5CBD1E212E38B0009F10A5 /* Point.swift in Sources */,
+				5AFB4E7C21334EB000C4F995 /* Transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,12 +271,14 @@
 				5A5CBD17212E3229009F10A5 /* TupleTests.swift in Sources */,
 				5A5CBD32212F8C2D009F10A5 /* Canvas.swift in Sources */,
 				5A5CBD13212E307C009F10A5 /* main.swift in Sources */,
+				5AFB4E7A21334CB600C4F995 /* TranslationTests.swift in Sources */,
 				5A5CBD25212E3B77009F10A5 /* Vector.swift in Sources */,
 				5A322E7B2130C5E100424AF5 /* Matrix.swift in Sources */,
 				5A5CBD38212F9EB5009F10A5 /* PPM.swift in Sources */,
 				5A322E7E2130C63B00424AF5 /* MatrixTests.swift in Sources */,
 				5A5CBD0D212E3066009F10A5 /* ray_tracer_unit_tests.swift in Sources */,
 				5A5CBD35212F970D009F10A5 /* FileUtil.swift in Sources */,
+				5AFB4E7D21334EB000C4F995 /* Transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

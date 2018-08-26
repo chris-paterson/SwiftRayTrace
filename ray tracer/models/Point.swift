@@ -20,8 +20,7 @@ class Point: Tuple {
     static func -(lhs: Point, rhs: Point) -> Vector {
         return Vector(x: lhs.x - rhs.x,
                      y: lhs.y - rhs.y,
-                     z: lhs.z - rhs.z,
-                     w: lhs.w - rhs.w)
+                     z: lhs.z - rhs.z)
     }
     
     static func -(lhs: Point, rhs: Vector) -> Point {
