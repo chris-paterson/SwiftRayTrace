@@ -62,5 +62,30 @@ class MatrixTests: XCTestCase {
         XCTAssert(m2.width == 3)
         XCTAssert(m2.height == 3)
     }
+    
+    func testMatrixMultiplication() {
+        let m1 = Matrix([
+            [1, 2, 3, 4],
+            [2, 3, 4, 5],
+            [3, 4, 5, 6],
+            [4, 5, 6, 7]
+        ])
+        
+        let m2 = Matrix([
+            [0, 1, 2, 4],
+            [1, 2, 4, 8],
+            [2, 4, 8, 16],
+            [4, 8, 16, 32]
+        ])
+        
+        let expected = Matrix([
+            [24 , 49 ,  98 , 196],
+            [31 , 64 , 128 , 256],
+            [38 , 79 , 158 , 316],
+            [45 , 94 , 188 , 376]
+        ])
+        
+        XCTAssert(m1 * m2 == expected)
+    }
 
 }
