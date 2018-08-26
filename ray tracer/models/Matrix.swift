@@ -11,6 +11,8 @@ class Matrix {
     let height: Int
     let width: Int
     
+    // TODO: Should this be a class var to accomodate to more than just 4x4?
+    // Maybe make it a static function passing in the size (width/height should be the same)
     static let identity = Matrix([
         [1, 0, 0, 0],
         [0, 1, 0, 0],
@@ -30,8 +32,6 @@ class Matrix {
     }
     
     convenience init(tuple t: Tuple) {
-        // TODO: Switch to transpose
-        // Create a 1x4 matrix
         let m = [t.x, t.y, t.z, t.w].map { [$0] }
         self.init(m)
     }
@@ -50,6 +50,18 @@ class Matrix {
             assert(indexIsValid(row: row, column: column), "Index out of range")
             return matrix[row][column] = newValue
         }
+    }
+    
+    func transposed() -> Matrix {
+        let transposedMatrix = Matrix(width: self.width, height: self.height)
+        
+        for r in 0..<self.height {
+            for c in 0..<self.width {
+                transposedMatrix[r, c] = self[c, r]
+            }
+        }
+        
+        return transposedMatrix
     }
     
     func getColumn(col: Int) -> [Float] {
