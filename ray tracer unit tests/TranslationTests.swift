@@ -145,4 +145,31 @@ class TranslationTests: XCTestCase {
         
         XCTAssert(p * t == Point(x: 2, y: 3, z: 7))
     }
+    
+    func testIndividualTransforsAppliedInSequence() {
+        let p = Point(x: 1, y: 0, z: 1)
+        let a = Transform.rotateX(.pi / 2)
+        let b = Transform.scale(x: 5, y: 5, z: 5)
+        let c = Transform.transform(x: 10, y: 5, z: 7)
+        
+        let p2 = a * p
+        XCTAssert(p2 == Point(x: 1, y: -1, z: 0))
+        
+        let p3 = b * p2
+        XCTAssert(p3 == Point(x: 5, y: -5, z: 0))
+        
+        let p4 = c * p3
+        XCTAssert(p4 == Point(x: 15, y: 0, z: 7))
+    }
+    
+    func testIndividualTransforsAppliedInReverseOrder() {
+        let p = Point(x: 1, y: 0, z: 1)
+        let a = Transform.rotateX(.pi / 2)
+        let b = Transform.scale(x: 5, y: 5, z: 5)
+        let c = Transform.transform(x: 10, y: 5, z: 7)
+        
+        let t = c * b * a
+        let p2 = p * t
+        XCTAssert(p2 == Point(x: 15, y: 0, z: 7))
+    }
 }
