@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A149270213704F300800E3C /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A14926F213704F300800E3C /* Clock.swift */; };
 		5A322E7B2130C5E100424AF5 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7A2130C5E100424AF5 /* Matrix.swift */; };
 		5A322E7C2130C62500424AF5 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7A2130C5E100424AF5 /* Matrix.swift */; };
 		5A322E7E2130C63B00424AF5 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7D2130C63B00424AF5 /* MatrixTests.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A14926F213704F300800E3C /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5A322E7A2130C5E100424AF5 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		5A322E7D2130C63B00424AF5 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
 		5A5CBCFA212E2F5E009F10A5 /* ray tracer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ray tracer"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A149271213704FF00800E3C /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5A14926F213704F300800E3C /* Clock.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
 		5A5CBCF1212E2F5E009F10A5 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		5A5CBCFC212E2F5E009F10A5 /* ray tracer */ = {
 			isa = PBXGroup;
 			children = (
+				5A149271213704FF00800E3C /* Clock */,
 				5A5CBD28212F77C9009F10A5 /* cannon */,
 				5A5CBCFD212E2F5E009F10A5 /* main.swift */,
 				5A5CBD33212F944B009F10A5 /* FileUtil.swift */,
@@ -250,6 +261,7 @@
 				5A5CBD27212F77C4009F10A5 /* Projectile.swift in Sources */,
 				5A5CBD2C212F7B68009F10A5 /* Color.swift in Sources */,
 				5A5CBD31212F8BDC009F10A5 /* Canvas.swift in Sources */,
+				5A149270213704F300800E3C /* Clock.swift in Sources */,
 				5A322E7C2130C62500424AF5 /* Matrix.swift in Sources */,
 				5A5CBD19212E347E009F10A5 /* Tuple.swift in Sources */,
 				5A5CBCFE212E2F5E009F10A5 /* main.swift in Sources */,
