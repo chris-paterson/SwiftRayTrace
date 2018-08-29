@@ -53,4 +53,13 @@ class Transform {
             [0,         0,          0, 1],
         ])
     }
+    
+    static func shear(xy: Float, xz: Float, yx: Float, yz: Float, zx: Float, zy: Float) -> Matrix {
+        return Matrix([
+            [1, xy, xz, 0],
+            [yx, 1, yz, 0],
+            [zx, zy, 1, 0],
+            [0, 0, 0, 1],
+        ])
+    }
 }

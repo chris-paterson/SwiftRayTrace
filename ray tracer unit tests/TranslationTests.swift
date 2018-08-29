@@ -103,4 +103,46 @@ class TranslationTests: XCTestCase {
         XCTAssert(halfQuater * p == Point(x: -sqrt(2)/2, y: sqrt(2)/2, z: 0))
         XCTAssert(fullQuater * p == Point(x: -1, y: 0, z: 0))
     }
+    
+    func testShearMovesXProportionalToY() {
+        let t = Transform.shear(xy: 1, xz: 0, yx: 0, yz: 0, zx: 0, zy: 0)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 5, y: 3, z: 4))
+    }
+    
+    func testShearMovesXProportionalToZ() {
+        let t = Transform.shear(xy: 0, xz: 1, yx: 0, yz: 0, zx: 0, zy: 0)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 6, y: 3, z: 4))
+    }
+    
+    func testShearMovesYProportionalToX() {
+        let t = Transform.shear(xy: 0, xz: 0, yx: 1, yz: 0, zx: 0, zy: 0)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 2, y: 5, z: 4))
+    }
+    
+    func testShearMovesYProportionalToZ() {
+        let t = Transform.shear(xy: 0, xz: 0, yx: 0, yz: 1, zx: 0, zy: 0)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 2, y: 7, z: 4))
+    }
+    
+    func testShearMovesZProportionalToX() {
+        let t = Transform.shear(xy: 0, xz: 0, yx: 0, yz: 0, zx: 1, zy: 0)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 2, y: 3, z: 6))
+    }
+    
+    func testShearMovesZProportionalToY() {
+        let t = Transform.shear(xy: 0, xz: 0, yx: 0, yz: 0, zx: 0, zy: 1)
+        let p = Point(x: 2, y: 3, z: 4)
+        
+        XCTAssert(p * t == Point(x: 2, y: 3, z: 7))
+    }
 }
