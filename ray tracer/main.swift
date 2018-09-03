@@ -29,4 +29,4 @@ import Foundation
 //print("Done")
 
 
-let c = Clock(hour: 3)
+let c = Clock()
