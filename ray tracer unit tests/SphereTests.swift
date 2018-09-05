@@ -16,8 +16,8 @@ class SphereTests: XCTestCase {
         
         let xs = r.intersects(sphere: s)
         XCTAssert(xs.count == 2)
-        XCTAssert(xs[0] == 4)
-        XCTAssert(xs[1] == 6)
+        XCTAssert(xs[0].t == 4)
+        XCTAssert(xs[1].t == 6)
     }
     
     func testRayIntersectsAtTangent() {
@@ -26,8 +26,8 @@ class SphereTests: XCTestCase {
         
         let xs = r.intersects(sphere: s)
         XCTAssert(xs.count == 2)
-        XCTAssert(xs[0] == 5)
-        XCTAssert(xs[1] == 5)
+        XCTAssert(xs[0].t == 5)
+        XCTAssert(xs[1].t == 5)
     }
 
     func testRayMisses()  {
@@ -44,8 +44,8 @@ class SphereTests: XCTestCase {
         
         let xs = r.intersects(sphere: s)
         XCTAssert(xs.count == 2)
-        XCTAssert(xs[0] == -1)
-        XCTAssert(xs[1] == 1)
+        XCTAssert(xs[0].t == -1)
+        XCTAssert(xs[1].t == 1)
     }
     
     func testSphereBehindRay()  {
@@ -54,7 +54,7 @@ class SphereTests: XCTestCase {
         
         let xs = r.intersects(sphere: s)
         XCTAssert(xs.count == 2)
-        XCTAssert(xs[0] == -6)
-        XCTAssert(xs[1] == -4)
+        XCTAssert(xs[0].t == -6)
+        XCTAssert(xs[1].t == -4)
     }
 }

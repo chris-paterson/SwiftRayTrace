@@ -17,6 +17,11 @@
 		5A361FB7213DF48900310D6B /* SphereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB6213DF48900310D6B /* SphereTests.swift */; };
 		5A361FB9213E07B700310D6B /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB8213E07B700310D6B /* Sphere.swift */; };
 		5A361FBA213E07B700310D6B /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB8213E07B700310D6B /* Sphere.swift */; };
+		5A361FBC213F4F8E00310D6B /* IntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FBB213F4F8E00310D6B /* IntersectionTests.swift */; };
+		5A361FBE213F511500310D6B /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FBD213F511500310D6B /* Intersection.swift */; };
+		5A361FBF213F511500310D6B /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FBD213F511500310D6B /* Intersection.swift */; };
+		5A361FC1213F519E00310D6B /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FC0213F519E00310D6B /* BaseObject.swift */; };
+		5A361FC2213F519E00310D6B /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FC0213F519E00310D6B /* BaseObject.swift */; };
 		5A5CBCFE212E2F5E009F10A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBCFD212E2F5E009F10A5 /* main.swift */; };
 		5A5CBD0D212E3066009F10A5 /* ray_tracer_unit_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBD0C212E3066009F10A5 /* ray_tracer_unit_tests.swift */; };
 		5A5CBD13212E307C009F10A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CBD12212E307C009F10A5 /* main.swift */; };
@@ -63,6 +68,9 @@
 		5A361FB3213DF34F00310D6B /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		5A361FB6213DF48900310D6B /* SphereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTests.swift; sourceTree = "<group>"; };
 		5A361FB8213E07B700310D6B /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		5A361FBB213F4F8E00310D6B /* IntersectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntersectionTests.swift; sourceTree = "<group>"; };
+		5A361FBD213F511500310D6B /* Intersection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intersection.swift; sourceTree = "<group>"; };
+		5A361FC0213F519E00310D6B /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		5A5CBCFA212E2F5E009F10A5 /* ray tracer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ray tracer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5CBCFD212E2F5E009F10A5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5A5CBD0A212E3066009F10A5 /* ray tracer unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ray tracer unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +118,15 @@
 			path = Clock;
 			sourceTree = "<group>";
 		};
+		5A361FC3213F51A400310D6B /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5A361FC0213F519E00310D6B /* BaseObject.swift */,
+				5A361FB8213E07B700310D6B /* Sphere.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		5A5CBCF1212E2F5E009F10A5 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +170,7 @@
 				5AFB4E7921334CB600C4F995 /* TranslationTests.swift */,
 				5A361FB1213DF22600310D6B /* RayTests.swift */,
 				5A361FB6213DF48900310D6B /* SphereTests.swift */,
+				5A361FBB213F4F8E00310D6B /* IntersectionTests.swift */,
 			);
 			path = "ray tracer unit tests";
 			sourceTree = "<group>";
@@ -177,7 +195,8 @@
 				5A322E7A2130C5E100424AF5 /* Matrix.swift */,
 				5AFB4E7B21334EB000C4F995 /* Transform.swift */,
 				5A361FB3213DF34F00310D6B /* Ray.swift */,
-				5A361FB8213E07B700310D6B /* Sphere.swift */,
+				5A361FBD213F511500310D6B /* Intersection.swift */,
+				5A361FC3213F51A400310D6B /* Objects */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -274,9 +293,11 @@
 				5A5CBD37212F9EB5009F10A5 /* PPM.swift in Sources */,
 				5A5CBD27212F77C4009F10A5 /* Projectile.swift in Sources */,
 				5A5CBD2C212F7B68009F10A5 /* Color.swift in Sources */,
+				5A361FBE213F511500310D6B /* Intersection.swift in Sources */,
 				5A5CBD31212F8BDC009F10A5 /* Canvas.swift in Sources */,
 				5A361FB9213E07B700310D6B /* Sphere.swift in Sources */,
 				5A149270213704F300800E3C /* Clock.swift in Sources */,
+				5A361FC1213F519E00310D6B /* BaseObject.swift in Sources */,
 				5A322E7C2130C62500424AF5 /* Matrix.swift in Sources */,
 				5A5CBD19212E347E009F10A5 /* Tuple.swift in Sources */,
 				5A5CBCFE212E2F5E009F10A5 /* main.swift in Sources */,
@@ -298,16 +319,19 @@
 				5A5CBD2F212F8B9D009F10A5 /* CanvasTests.swift in Sources */,
 				5A361FB7213DF48900310D6B /* SphereTests.swift in Sources */,
 				5A361FBA213E07B700310D6B /* Sphere.swift in Sources */,
+				5A361FC2213F519E00310D6B /* BaseObject.swift in Sources */,
 				5A5CBD17212E3229009F10A5 /* TupleTests.swift in Sources */,
 				5A5CBD32212F8C2D009F10A5 /* Canvas.swift in Sources */,
 				5A5CBD13212E307C009F10A5 /* main.swift in Sources */,
 				5AFB4E7A21334CB600C4F995 /* TranslationTests.swift in Sources */,
 				5A361FB2213DF22600310D6B /* RayTests.swift in Sources */,
 				5A5CBD25212E3B77009F10A5 /* Vector.swift in Sources */,
+				5A361FBF213F511500310D6B /* Intersection.swift in Sources */,
 				5A322E7B2130C5E100424AF5 /* Matrix.swift in Sources */,
 				5A5CBD38212F9EB5009F10A5 /* PPM.swift in Sources */,
 				5A322E7E2130C63B00424AF5 /* MatrixTests.swift in Sources */,
 				5A5CBD0D212E3066009F10A5 /* ray_tracer_unit_tests.swift in Sources */,
+				5A361FBC213F4F8E00310D6B /* IntersectionTests.swift in Sources */,
 				5A5CBD35212F970D009F10A5 /* FileUtil.swift in Sources */,
 				5A361FB5213DF34F00310D6B /* Ray.swift in Sources */,
 				5AFB4E7D21334EB000C4F995 /* Transform.swift in Sources */,

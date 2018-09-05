@@ -6,6 +6,8 @@
 //  Copyright © 2018 Christopher Paterson. All rights reserved.
 //
 
-struct Sphere {
-    
+class Sphere: BaseObject {
+    override init() {
+        super.init()
+    }
 }

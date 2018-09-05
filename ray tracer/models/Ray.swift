@@ -21,7 +21,7 @@ class Ray {
         return origin + direction * time
     }
     
-    public func intersects(sphere s: Sphere) -> [Float] {
+    public func intersects(sphere s: Sphere) -> [Intersection] {
         let sphereToRay = origin - Point(x: 0, y: 0, z: 0)
         let a = direction.dot(direction)
         let b = 2 * direction.dot(sphereToRay)
@@ -36,8 +36,11 @@ class Ray {
         let t1 = (-b - sqrt(discriminant)) / (2 * a)
         let t2 = (-b + sqrt(discriminant)) / (2 * a)
         
-        var intersections: [Float] = [t1, t2]
-        intersections.sort()
+        let intersection1 = Intersection(t: t1, object: s)
+        let intersection2 = Intersection(t: t2, object: s)
+        
+        var intersections: [Intersection] = [intersection1, intersection2]
+        intersections.sort { $0.t < $1.t }
         
         return intersections
     }
