@@ -6,7 +6,7 @@
 //  Copyright © 2018 Christopher Paterson. All rights reserved.
 //
 
-struct Intersection {
+struct Intersection: Equatable {
     let t: Float
     let object: BaseObject
 }

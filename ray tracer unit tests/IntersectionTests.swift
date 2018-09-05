@@ -41,5 +41,51 @@ class IntersectionTests: XCTestCase {
         XCTAssert(xs[1].object == s)
         XCTAssert(xs[1].object == s)
     }
+    
+    func testHitWhenAllPositive() {
+        let s = Sphere()
+        let i1 = Intersection(t: 1, object: s)
+        let i2 = Intersection(t: 2, object: s)
+        let xs = [i2, i1]
+        
+        let h = Ray.hit(intersections: xs)
+        
+        XCTAssert(h! == i1)
+    }
+    
+    func testHitWhenOneNegative() {
+        let s = Sphere()
+        let i1 = Intersection(t: -1, object: s)
+        let i2 = Intersection(t: 1, object: s)
+        let xs = [i2, i1]
+        
+        let h = Ray.hit(intersections: xs)
+        
+        XCTAssert(h! == i2)
+    }
+    
+    func testHitWhenAllNegative() {
+        let s = Sphere()
+        let i1 = Intersection(t: -1, object: s)
+        let i2 = Intersection(t: -2, object: s)
+        let xs = [i2, i1]
+        
+        let h = Ray.hit(intersections: xs)
+        
+        XCTAssert(h == nil)
+    }
+    
+    func testHitLowestNonNegative() {
+        let s = Sphere()
+        let i1 = Intersection(t: 5, object: s)
+        let i2 = Intersection(t: 7, object: s)
+        let i3 = Intersection(t: -3, object: s)
+        let i4 = Intersection(t: 2, object: s)
+        let xs = [i1, i2, i3, i4]
+        
+        let h = Ray.hit(intersections: xs)
+        
+        XCTAssert(h! == i4)
+    }
 
 }

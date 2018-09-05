@@ -44,4 +44,10 @@ class Ray {
         
         return intersections
     }
+    
+    public static func hit(intersections: [Intersection]) -> Intersection? {
+        let positiveIntersections = intersections.filter { $0.t > 0 }
+        guard positiveIntersections.count > 0 else { return nil }
+        return positiveIntersections.min { $0.t < $1.t }
+    }
 }
