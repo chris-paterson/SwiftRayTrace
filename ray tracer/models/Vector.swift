@@ -19,9 +19,9 @@ class Vector: Tuple {
         super.init(x: x, y: y, z: z, w: 0.0)
     }
     
-//    override init(x: Float, y: Float, z: Float, w: Float) {
-//        super.init(x: x, y: y, z: z, w: w)
-//    }
+    convenience init(tuple t: Tuple) {
+        self.init(x: t.x, y: t.y, z: t.z)
+    }
     
     static func -(lhs: Vector, rhs: Vector) -> Vector {
         return Vector(x: lhs.x - rhs.x,

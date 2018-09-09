@@ -11,6 +11,10 @@ class Point: Tuple {
         super.init(x: x, y: y, z: z, w: 1.0)
     }
     
+    convenience init(tuple t: Tuple) {
+        self.init(x: t.x, y: t.y, z: t.z)
+    }
+    
     static func +(lhs: Point, rhs: Tuple) -> Point {
         return Point(x: lhs.x + rhs.x,
                      y: lhs.y + rhs.y,

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Christopher Paterson. All rights reserved.
 //
 
-class Matrix {
+class Matrix: CustomStringConvertible {
     static let EPSILON: Float = 0.0001
     
     private var matrix: [[Float]]
@@ -200,5 +200,14 @@ class Matrix {
         }
         
         return m
+    }
+    
+    var description: String {
+        var acc = "["
+        for row in 0..<height {
+            acc.append("\n\t\(getRow(row: row)),")
+        }
+        acc.append("\n]")
+        return acc
     }
 }

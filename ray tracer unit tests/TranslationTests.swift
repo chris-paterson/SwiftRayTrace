@@ -21,14 +21,13 @@ class TranslationTests: XCTestCase {
     }
 
     func testMultiplyByTranslationMatrix() {
-        let t = Transform.transform(x: 5, y: -3, z: 2)
+        let t = Transform.translate(x: 5, y: -3, z: 2)
         let p = Point(x: -3, y: 4, z: 5)
-
         XCTAssert(t * p == Point(x: 2, y: 1, z: 7))
     }
 
     func testTranslationInverseMultiplication() {
-        let t = Transform.transform(x: 5, y: -3, z: 2)
+        let t = Transform.translate(x: 5, y: -3, z: 2)
         let tInverse = t.inverse()
         let p = Point(x: -3, y: 4, z: 5)
 
@@ -36,7 +35,7 @@ class TranslationTests: XCTestCase {
     }
 
     func testTranslationDoesNotAffectVectors() {
-        let t = Transform.transform(x: 5, y: -3, z: 2)
+        let t = Transform.translate(x: 5, y: -3, z: 2)
         let v = Vector(x: -3, y: 4, z: 5)
         XCTAssert(t * v == v)
     }
@@ -150,7 +149,7 @@ class TranslationTests: XCTestCase {
         let p = Point(x: 1, y: 0, z: 1)
         let a = Transform.rotateX(.pi / 2)
         let b = Transform.scale(x: 5, y: 5, z: 5)
-        let c = Transform.transform(x: 10, y: 5, z: 7)
+        let c = Transform.translate(x: 10, y: 5, z: 7)
         
         let p2 = a * p
         XCTAssert(p2 == Point(x: 1, y: -1, z: 0))
@@ -166,7 +165,7 @@ class TranslationTests: XCTestCase {
         let p = Point(x: 1, y: 0, z: 1)
         let a = Transform.rotateX(.pi / 2)
         let b = Transform.scale(x: 5, y: 5, z: 5)
-        let c = Transform.transform(x: 10, y: 5, z: 7)
+        let c = Transform.translate(x: 10, y: 5, z: 7)
         
         let t = c * b * a
         let p2 = p * t

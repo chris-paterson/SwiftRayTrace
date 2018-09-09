@@ -9,7 +9,7 @@
 import Foundation
 
 class Transform {
-    static func transform(x: Float, y: Float, z: Float) -> Matrix {
+    static func translate(x: Float, y: Float, z: Float) -> Matrix {
         return Matrix([
             [1, 0, 0, x],
             [0, 1, 0, y],

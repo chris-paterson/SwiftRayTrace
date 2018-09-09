@@ -50,4 +50,14 @@ class Ray {
         guard positiveIntersections.count > 0 else { return nil }
         return positiveIntersections.min { $0.t < $1.t }
     }
+    
+    public static func *(lhs: Ray, rhs: Matrix) -> Ray {
+        let newOrigin = Point(tuple: lhs.origin * rhs)
+        let newDirection = Vector(tuple: lhs.direction * rhs)
+        return Ray(origin: newOrigin, direction: newDirection)
+    }
+    
+    public static func *(lhs: Matrix, rhs: Ray) -> Ray {
+        return rhs * lhs
+    }
 }
