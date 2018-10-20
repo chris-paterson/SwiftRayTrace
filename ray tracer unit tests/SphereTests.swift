@@ -57,4 +57,37 @@ class SphereTests: XCTestCase {
         XCTAssert(xs[0].t == -6)
         XCTAssert(xs[1].t == -4)
     }
+    
+    func testSphereDefaultTransformation() {
+        let s = Sphere()
+        XCTAssert(s.transform == Matrix.identity)
+    }
+    
+    func testChangeSphereTransormation() {
+        let s = Sphere()
+        let t = Transform.translate(x: 2, y: 3, z: 4)
+        s.transform = t
+        
+        XCTAssert(s.transform == t)
+    }
+    
+    func testIntersectAScaledSphere() {
+        let r = Ray(origin: Point(x: 0, y: 0, z: -5), direction: Vector(x: 0, y: 0, z: 1))
+        let s = Sphere()
+        s.transform = Transform.scale(x: 2, y: 2, z: 2)
+        let xs = r.intersects(sphere: s)
+        
+        XCTAssert(xs.count == 2)
+        XCTAssert(xs[0].t == 3)
+        XCTAssert(xs[1].t == 7)
+    }
+    
+    func testIntersectTranslatedSphere() {
+        let r = Ray(origin: Point(x: 0, y: 0, z: -5), direction: Vector(x: 0, y: 0, z: 1))
+        let s = Sphere()
+        s.transform = Transform.translate(x: 5, y: 0, z: 0)
+        let xs = r.intersects(sphere: s)
+        
+        XCTAssert(xs.count == 0)
+    }
 }

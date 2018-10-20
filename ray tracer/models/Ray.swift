@@ -22,9 +22,10 @@ class Ray {
     }
     
     public func intersects(sphere s: Sphere) -> [Intersection] {
-        let sphereToRay = origin - Point(x: 0, y: 0, z: 0)
-        let a = direction.dot(direction)
-        let b = 2 * direction.dot(sphereToRay)
+        let translatedRay = self * s.transform.inverse()
+        let sphereToRay = translatedRay.origin - Point(x: 0, y: 0, z: 0)
+        let a = translatedRay.direction.dot(translatedRay.direction)
+        let b = 2 * translatedRay.direction.dot(sphereToRay)
         let c = sphereToRay.dot(sphereToRay) - 1
         let discriminant = b * b - 4 * a * c
         

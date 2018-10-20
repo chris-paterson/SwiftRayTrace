@@ -29,4 +29,67 @@ import Foundation
 //print("Done")
 
 
-let c = Clock()
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//let c = Clock()
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let rayOrigin = Point(x: 0, y: 0, z: -5)
+
+let wallZ: Float = 10.0
+let wallSize: Float = 7.0
+
+let canvasSize = 100
+let canvas = Canvas(width: canvasSize, height: canvasSize)
+
+let s = Sphere()
+
+let pixelSize = wallSize / Float(canvasSize)
+
+let half = Float(canvasSize / 2)
+
+let color = Color(r: 1.0, g: 0, b: 0)
+for y in 0..<canvas.height {
+    let worldY: Float = half - pixelSize * Float(y)
+    
+    for x in 0..<canvas.width {
+        let worldX: Float = pixelSize * Float(x) - half
+        
+        let target = Point(x: worldX, y: worldY, z: wallZ)
+        let r = Ray(origin: rayOrigin, direction: (target - rayOrigin).normalize())
+        let xs = r.intersects(sphere: s)
+
+        if Ray.hit(intersections: xs) != nil {
+            canvas[x, y] = color
+        }
+    }
+}
+
+canvas.save(fileName: "2d.ppm")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

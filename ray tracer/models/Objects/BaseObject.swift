@@ -10,6 +10,7 @@ import Foundation
 
 class BaseObject: Equatable {
     let uuid: String
+    var transform = Matrix.identity
     
     init() {
         self.uuid = UUID().uuidString
