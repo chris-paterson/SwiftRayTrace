@@ -47,7 +47,7 @@ let s = Sphere()
 
 let pixelSize = wallSize / Float(canvasSize)
 
-let half = Float(canvasSize / 2)
+let half = Float(wallSize / 2)
 
 let color = Color(r: 1.0, g: 0, b: 0)
 for y in 0..<canvas.height {
