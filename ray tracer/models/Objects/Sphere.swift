@@ -10,4 +10,9 @@ class Sphere: BaseObject {
     override init() {
         super.init()
     }
+    
+    func normalAt(point: Point) -> Vector {
+        let v = point - Point(x: 0, y: 0, z: 0)
+        return v.normalize()
+    }
 }

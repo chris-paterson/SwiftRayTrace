@@ -90,4 +90,38 @@ class SphereTests: XCTestCase {
         
         XCTAssert(xs.count == 0)
     }
+    
+    func testNormalAtPointOnXAxis() {
+        let s = Sphere()
+        let n = s.normalAt(point: Point(x: 1, y: 0, z: 0))
+        
+        XCTAssert(n == Vector(x: 1, y: 0, z: 0))
+    }
+    
+    func testNormalAtPointOnYAxis() {
+        let s = Sphere()
+        let n = s.normalAt(point: Point(x: 0, y: 1, z: 0))
+        
+        XCTAssert(n == Vector(x: 0, y: 1, z: 0))
+    }
+    
+    func testNormalAtPointOnZAxis() {
+        let s = Sphere()
+        let n = s.normalAt(point: Point(x: 0, y: 0, z: 1))
+        
+        XCTAssert(n == Vector(x: 0, y: 0, z: 1))
+    }
+    
+    func testNormalAtNonAxialPoint() {
+        let s = Sphere()
+        let n = s.normalAt(point: Point(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3))
+        
+        XCTAssert(n == Vector(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3))
+    }
+    
+    func testNormalIsNormalizedVector() {
+        let s = Sphere()
+        let n = s.normalAt(point: Point(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3))
+        XCTAssert(n == n.normalize())
+    }
 }
