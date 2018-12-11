@@ -218,4 +218,18 @@ class TupleTests: XCTestCase {
         
         XCTAssert(result == Color(r: 0.9, g: 0.2, b: 0.04))
     }
+    
+    func testReflectVect45Deg() {
+        let v = Vector(x: 1, y: -1, z: 0)
+        let n = Vector(x: 0, y: 1, z: 0)
+        let r = Vector.reflect(v: v, normal: n)
+        XCTAssert(r == Vector(x: 1, y: 1, z: 0))
+    }
+    
+    func testReflectVectTiltedSurface() {
+        let v = Vector(x: 0, y: -1, z: 0)
+        let n = Vector(x: sqrt(2)/2, y: sqrt(2)/2, z: 0)
+        let r = Vector.reflect(v: v, normal: n)
+        XCTAssert(r == Vector(x: 1, y: 0, z: 0))
+    }
 }

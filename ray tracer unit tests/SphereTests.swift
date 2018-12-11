@@ -124,4 +124,34 @@ class SphereTests: XCTestCase {
         let n = s.normalAt(point: Point(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3))
         XCTAssert(n == n.normalize())
     }
+    
+    func testComputeNormalTranslatedSphere() {
+        let s = Sphere()
+        s.transform = Transform.translate(x: 0, y: 1, z: 0)
+        
+        let n = s.normalAt(point: Point(x: 0, y: 1.70711, z: -0.70711))
+        XCTAssert(n == Vector(x: 0, y: 0.70711, z: -0.70711))
+    }
+    
+    func testComputeNormalScaledSphere() {
+        let s = Sphere()
+        s.transform = Transform.scale(x: 1, y: 0.5, z: 1)
+        
+        let n = s.normalAt(point: Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2))
+        XCTAssert(n == Vector(x: 0, y: 0.97014, z: -0.24254))
+    }
+    
+    func testSphereHasDefaultMaterial() {
+        let s = Sphere()
+        let m = s.material
+        let defaultMaterial = Material()
+        XCTAssert(m == defaultMaterial)
+    }
+    
+    func testSphereCanBeAssignedMaterial() {
+        let m = Material(color: nil, ambient: 1, diffuse: nil, specular: nil, shininess: nil)
+        let s = Sphere(material: m)
+        
+        XCTAssert(s.material == m)
+    }
 }

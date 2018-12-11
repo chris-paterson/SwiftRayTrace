@@ -23,6 +23,11 @@ class Vector: Tuple {
         self.init(x: t.x, y: t.y, z: t.z)
     }
     
+    static func reflect(v: Vector, normal: Vector) -> Vector {
+        let ret = v - normal * 2 * v.dot(normal)
+        return ret
+    }
+    
     static func -(lhs: Vector, rhs: Vector) -> Vector {
         return Vector(x: lhs.x - rhs.x,
                       y: lhs.y - rhs.y,

@@ -11,6 +11,12 @@
 		5A322E7B2130C5E100424AF5 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7A2130C5E100424AF5 /* Matrix.swift */; };
 		5A322E7C2130C62500424AF5 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7A2130C5E100424AF5 /* Matrix.swift */; };
 		5A322E7E2130C63B00424AF5 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A322E7D2130C63B00424AF5 /* MatrixTests.swift */; };
+		5A34E3A021C036090012E850 /* LightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E39F21C036090012E850 /* LightTests.swift */; };
+		5A34E3A221C036380012E850 /* MaterialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E3A121C036380012E850 /* MaterialTests.swift */; };
+		5A34E3A421C037D90012E850 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E3A321C037D90012E850 /* Light.swift */; };
+		5A34E3A521C037D90012E850 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E3A321C037D90012E850 /* Light.swift */; };
+		5A34E3A721C037E20012E850 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E3A621C037E20012E850 /* Material.swift */; };
+		5A34E3A821C037E20012E850 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E3A621C037E20012E850 /* Material.swift */; };
 		5A361FB2213DF22600310D6B /* RayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB1213DF22600310D6B /* RayTests.swift */; };
 		5A361FB4213DF34F00310D6B /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB3213DF34F00310D6B /* Ray.swift */; };
 		5A361FB5213DF34F00310D6B /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A361FB3213DF34F00310D6B /* Ray.swift */; };
@@ -64,6 +70,10 @@
 		5A14926F213704F300800E3C /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5A322E7A2130C5E100424AF5 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		5A322E7D2130C63B00424AF5 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
+		5A34E39F21C036090012E850 /* LightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTests.swift; sourceTree = "<group>"; };
+		5A34E3A121C036380012E850 /* MaterialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTests.swift; sourceTree = "<group>"; };
+		5A34E3A321C037D90012E850 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		5A34E3A621C037E20012E850 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		5A361FB1213DF22600310D6B /* RayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTests.swift; sourceTree = "<group>"; };
 		5A361FB3213DF34F00310D6B /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		5A361FB6213DF48900310D6B /* SphereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTests.swift; sourceTree = "<group>"; };
@@ -164,7 +174,6 @@
 			children = (
 				5A5CBD0C212E3066009F10A5 /* ray_tracer_unit_tests.swift */,
 				5A5CBD12212E307C009F10A5 /* main.swift */,
-				5A5CBD0E212E3066009F10A5 /* Info.plist */,
 				5A5CBD16212E3229009F10A5 /* TupleTests.swift */,
 				5A5CBD2E212F8B9D009F10A5 /* CanvasTests.swift */,
 				5A322E7D2130C63B00424AF5 /* MatrixTests.swift */,
@@ -172,6 +181,9 @@
 				5A361FB1213DF22600310D6B /* RayTests.swift */,
 				5A361FB6213DF48900310D6B /* SphereTests.swift */,
 				5A361FBB213F4F8E00310D6B /* IntersectionTests.swift */,
+				5A5CBD0E212E3066009F10A5 /* Info.plist */,
+				5A34E39F21C036090012E850 /* LightTests.swift */,
+				5A34E3A121C036380012E850 /* MaterialTests.swift */,
 			);
 			path = "ray tracer unit tests";
 			sourceTree = "<group>";
@@ -198,6 +210,8 @@
 				5A361FB3213DF34F00310D6B /* Ray.swift */,
 				5A361FBD213F511500310D6B /* Intersection.swift */,
 				5A361FC3213F51A400310D6B /* Objects */,
+				5A34E3A321C037D90012E850 /* Light.swift */,
+				5A34E3A621C037E20012E850 /* Material.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -297,6 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A34E3A421C037D90012E850 /* Light.swift in Sources */,
+				5A34E3A721C037E20012E850 /* Material.swift in Sources */,
 				5A5CBD2A212F77DA009F10A5 /* World.swift in Sources */,
 				5A5CBD37212F9EB5009F10A5 /* PPM.swift in Sources */,
 				5A5CBD27212F77C4009F10A5 /* Projectile.swift in Sources */,
@@ -321,7 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A34E3A821C037E20012E850 /* Material.swift in Sources */,
 				5A5CBD1A212E3737009F10A5 /* Tuple.swift in Sources */,
+				5A34E3A521C037D90012E850 /* Light.swift in Sources */,
 				5A5CBD1F212E38B0009F10A5 /* Point.swift in Sources */,
 				5A5CBD2D212F7B9D009F10A5 /* Color.swift in Sources */,
 				5A5CBD2F212F8B9D009F10A5 /* CanvasTests.swift in Sources */,
@@ -337,6 +355,8 @@
 				5A361FBF213F511500310D6B /* Intersection.swift in Sources */,
 				5A322E7B2130C5E100424AF5 /* Matrix.swift in Sources */,
 				5A5CBD38212F9EB5009F10A5 /* PPM.swift in Sources */,
+				5A34E3A221C036380012E850 /* MaterialTests.swift in Sources */,
+				5A34E3A021C036090012E850 /* LightTests.swift in Sources */,
 				5A322E7E2130C63B00424AF5 /* MatrixTests.swift in Sources */,
 				5A5CBD0D212E3066009F10A5 /* ray_tracer_unit_tests.swift in Sources */,
 				5A361FBC213F4F8E00310D6B /* IntersectionTests.swift in Sources */,
