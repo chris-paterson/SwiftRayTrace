@@ -158,7 +158,6 @@
 		5A5CBCFC212E2F5E009F10A5 /* ray tracer */ = {
 			isa = PBXGroup;
 			children = (
-				5AEE7B782145949000EE00DC /* 2d */,
 				5A149271213704FF00800E3C /* Clock */,
 				5A5CBD28212F77C9009F10A5 /* cannon */,
 				5A5CBCFD212E2F5E009F10A5 /* main.swift */,
@@ -214,13 +213,6 @@
 				5A34E3A621C037E20012E850 /* Material.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		5AEE7B782145949000EE00DC /* 2d */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = 2d;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

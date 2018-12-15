@@ -18,6 +18,10 @@ class Color: Tuple {
         super.init(x: r, y: g, z: b, w: 0.0)
     }
     
+    convenience init(tuple t: Tuple) {
+        self.init(r: t.x, g: t.y, b: t.z)
+    }
+    
     static func +(lhs: Color, rhs: Color) -> Color {
         return Color(r: lhs.r + rhs.r,
                      g: lhs.g + rhs.g,

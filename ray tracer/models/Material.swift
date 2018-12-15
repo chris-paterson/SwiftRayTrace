@@ -29,7 +29,6 @@ class Material: Equatable {
         self.shininess = shininess ?? 200
     }
     
-    
     static func == (lhs: Material, rhs: Material) -> Bool {
         return lhs.color == rhs.color &&
             lhs.ambient == rhs.ambient &&
