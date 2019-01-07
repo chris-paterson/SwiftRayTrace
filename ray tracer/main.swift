@@ -35,6 +35,59 @@ import Foundation
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//let rayOrigin = Point(x: 0, y: 0, z: -5)
+//
+//let wallZ: Float = 10.0
+//let wallSize: Float = 7.0
+//
+//let canvasSize = 100
+//let canvas = Canvas(width: canvasSize, height: canvasSize)
+//
+//let s = Sphere()
+//
+//let pixelSize = wallSize / Float(canvasSize)
+//
+//let half = Float(wallSize / 2)
+//
+//let color = Color(r: 1.0, g: 0, b: 0)
+//for y in 0..<canvas.height {
+//    let worldY: Float = half - pixelSize * Float(y)
+//    
+//    for x in 0..<canvas.width {
+//        let worldX: Float = pixelSize * Float(x) - half
+//        
+//        let target = Point(x: worldX, y: worldY, z: wallZ)
+//        let r = Ray(origin: rayOrigin, direction: (target - rayOrigin).normalize())
+//        let xs = r.intersects(sphere: s)
+//
+//        if Ray.hit(intersections: xs) != nil {
+//            canvas[x, y] = color
+//        }
+//    }
+//}
+//
+//canvas.save(fileName: "2d.ppm")
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Creating a sphere
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let sphereMaterial = Material(
+    color: Color(r: 1.0, g: 0.2, b: 1.0), 
+    ambient: nil, 
+    diffuse: nil, 
+    specular: nil, 
+    shininess: nil
+)
+
+let s = Sphere(material: sphereMaterial)
+
+let lightPosition = Point(x: -10, y: 10, z: -10)
+let lightColor = Color(r: 1.0, g: 1.0, b: 1.0)
+let light = Light(position: lightPosition, intensity: lightColor)
+
+
+// Mostly the same setup as 2d
 let rayOrigin = Point(x: 0, y: 0, z: -5)
 
 let wallZ: Float = 10.0
@@ -43,15 +96,14 @@ let wallSize: Float = 7.0
 let canvasSize = 100
 let canvas = Canvas(width: canvasSize, height: canvasSize)
 
-let s = Sphere()
-
 let pixelSize = wallSize / Float(canvasSize)
 
 let half = Float(wallSize / 2)
 
-let color = Color(r: 1.0, g: 0, b: 0)
 for y in 0..<canvas.height {
     let worldY: Float = half - pixelSize * Float(y)
+    
+    if y % 20 == 0 { print("Row \(y)") }
     
     for x in 0..<canvas.width {
         let worldX: Float = pixelSize * Float(x) - half
@@ -60,36 +112,16 @@ for y in 0..<canvas.height {
         let r = Ray(origin: rayOrigin, direction: (target - rayOrigin).normalize())
         let xs = r.intersects(sphere: s)
 
-        if Ray.hit(intersections: xs) != nil {
+        if let hit = Ray.hit(intersections: xs) {
+            let obj = hit.object as! Sphere
+            let point = r.position(atTime: hit.t)
+            let normal = obj.normalAt(point: point)
+            let eye = Vector(tuple: -r.direction)
+            
+            let color = Light.lighting(m: obj.material, light: light, position: point, eyev: eye, normal: normal)
             canvas[x, y] = color
         }
     }
 }
 
-canvas.save(fileName: "2d.ppm")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+canvas.save(fileName: "3d.ppm")

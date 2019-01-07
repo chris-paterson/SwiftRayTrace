@@ -32,10 +32,10 @@ class Light {
             diffuse = Color(tuple: effective_color * m.diffuse * lightDotNormal)
             
             let reflectv = Vector.reflect(v: Vector(tuple: -lightv), normal: normal)
-            let reflect_dot_eye = reflectv.dot(eyev)
+            let reflectDotEye = reflectv.dot(eyev)
             
-            if reflect_dot_eye > 0 {
-                let factor = pow(reflect_dot_eye, Float(m.shininess))
+            if reflectDotEye > 0 {
+                let factor = pow(reflectDotEye, Float(m.shininess))
                 specular = Color(tuple: light.intensity * m.specular * factor)
             }
         }
